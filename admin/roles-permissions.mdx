@@ -1,0 +1,74 @@
+---
+title: "Roles & permissions"
+description: "How to create custom roles, configure module permissions, and set visibility scopes for your team."
+---
+
+Roles control what each team member can see and do in WapNotify. Every user is assigned exactly one role.
+
+## Built-in roles
+
+Two system roles exist in every workspace and cannot be deleted:
+
+| Role | Access |
+|---|---|
+| **Admin** | Full access to everything — settings, billing, all conversations and contacts |
+| **Agent** | Access based on configured permissions and visibility scope |
+
+## Create a custom role
+
+1. Go to **Settings → Roles**.
+2. Click **New role**.
+3. Enter a **name** and optional **description**.
+4. Configure permissions (see below).
+5. Set the **visibility scope**.
+6. Click **Save**.
+
+Assign the role to team members from **Settings → Team**.
+
+## Module permissions
+
+Each role has granular permissions per module. Toggle each permission on or off:
+
+| Module | Available permissions |
+|---|---|
+| **Contacts** | View, Create, Edit, Delete, Import, Export |
+| **Conversations** | View, Send, Resolve, Assign |
+| **Broadcasts** | View, Create, Send, Delete |
+| **Templates** | View, Create, Edit, Delete |
+| **Leads** | View, Create, Edit, Delete |
+| **Analytics** | View |
+| **Dashboard** | View |
+| **Settings** | Manage roles, tags, quick replies |
+
+## Visibility scope
+
+The visibility scope determines which conversations and contacts an agent can see:
+
+| Scope | What the agent sees |
+|---|---|
+| **Own** | Only records assigned directly to them |
+| **Team** | Records assigned to anyone with the same role |
+| **All** | Every record in the workspace |
+
+Set the scope under the **Visibility** section when creating or editing a role.
+
+## Share with peers
+
+When visibility scope is set to **Own**, agents cannot see each other's conversations by default. Enable **Share with peers** on a role to allow agents with the same role to see each other's records.
+
+Use case: a team of agents where any agent should be able to cover for another during absences, without giving them full **All** access.
+
+## Role hierarchy
+
+Roles can have a parent role. A child role inherits visibility from its parent — child agents can see records assigned to their parent role group.
+
+This supports org-chart structures: a team lead role sees everything their agents see, without needing **All** scope.
+
+## Assign a role to a user
+
+1. Go to **Settings → Team**.
+2. Click a team member.
+3. Change their role using the **Role** dropdown.
+4. Save.
+
+Role changes take effect on the user's next page load.

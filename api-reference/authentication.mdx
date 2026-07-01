@@ -1,0 +1,95 @@
+---
+title: "Authentication"
+description: "How to obtain a JWT token and use it to authenticate API requests."
+---
+
+WapNotify uses JWT (JSON Web Tokens) for API authentication. Tokens are signed with HS256 and expire after 7 days.
+
+## Get a token
+
+Call the login endpoint with your workspace user credentials:
+
+```http
+POST /api/auth/login
+Content-Type: application/json
+
+{
+  "email": "you@yourcompany.com",
+  "password": "yourpassword"
+}
+```
+
+**Response:**
+
+```json
+{
+  "success": true,
+  "data": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "user": {
+      "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      "name": "Rahul Sharma",
+      "email": "rahul@yourcompany.com",
+      "role": "admin",
+      "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    }
+  }
+}
+```
+
+Store the `token` value — you'll include it in every subsequent request.
+
+## Use the token
+
+Add the token to the `Authorization` header of every request:
+
+```http
+GET /api/contacts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+```
+
+## Token expiry
+
+Tokens expire after **7 days**. After expiry, requests return `401 Unauthorized`. Call `/api/auth/login` again to get a new token.
+
+There is no refresh token mechanism — re-authenticate when the token expires.
+
+## Get current user info
+
+To verify a token and retrieve the authenticated user's details:
+
+```http
+GET /api/auth/me
+Authorization: Bearer <token>
+```
+
+**Response:**
+
+```json
+{
+  "success": true,
+  "data": {
+    "user": {
+      "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      "name": "Rahul Sharma",
+      "email": "rahul@yourcompany.com",
+      "role": "admin",
+      "workspaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "workspace": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "name": "Acme Corp",
+        "plan": "business"
+      }
+    }
+  }
+}
+```
+
+## Error responses
+
+| Scenario | Status | Error message |
+|---|---|---|
+| Missing Authorization header | 401 | `No token provided` |
+| Invalid or malformed token | 401 | `Invalid token` |
+| Token expired | 401 | `Token expired` |
+| Valid token, insufficient permissions | 403 | `Permission denied` |

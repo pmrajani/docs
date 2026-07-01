@@ -1,0 +1,64 @@
+---
+title: "Create a broadcast"
+description: "Step-by-step guide to creating and sending a WhatsApp broadcast in WapNotify."
+---
+
+## Create and send a broadcast
+
+<Steps>
+  <Step title="Open broadcasts">
+    Go to **Broadcasts** in the sidebar and click **New broadcast**.
+  </Step>
+
+  <Step title="Name the broadcast">
+    Enter an internal name for the broadcast (not visible to recipients). Use something descriptive like "June promo — existing customers" so you can identify it later.
+  </Step>
+
+  <Step title="Choose a template">
+    Select an approved template from the dropdown. Only templates with **Approved** status are available.
+
+    If the template has variable placeholders (`{{1}}`, `{{2}}`), you'll fill them in for each recipient in the next step — or you can use a template without variables for a fixed message.
+
+    <Note>
+      If you don't have an approved template yet, create one first. See [create a template](/templates/create-template).
+    </Note>
+  </Step>
+
+  <Step title="Select recipients">
+    Choose how to target recipients:
+
+    - **Contact list** — pick a saved list
+    - **By tag** — select one or more tags
+    - **All contacts** — send to everyone in the workspace
+
+    WapNotify shows the estimated recipient count after you make a selection.
+  </Step>
+
+  <Step title="Fill in template variables (if any)">
+    If the template has placeholders, enter the values to use for all recipients. At this stage, the same value applies to everyone — for personalized values (e.g. each person's name), use a template where the variable comes from the contact's name field.
+
+    {/* TODO: Per-contact variable mapping from contact fields is a planned feature */}
+  </Step>
+
+  <Step title="Review and send">
+    Review the broadcast summary:
+    - Template name and preview
+    - Recipient count
+    - Target type
+
+    Click **Send** to start the broadcast immediately.
+  </Step>
+</Steps>
+
+## Monitor delivery
+
+After sending, the broadcast status changes to **Running**. Open the broadcast to see:
+
+- **Summary stats** — total sent, delivered, read, failed counts and percentages
+- **Per-contact status** — scroll through each recipient to see their individual delivery status
+
+Delivery updates arrive in real time as Meta sends status callbacks.
+
+## Edit or delete a draft
+
+Broadcasts in **Draft** status can be edited or deleted. Once a broadcast is sent, it cannot be edited or cancelled — only its name can be updated.

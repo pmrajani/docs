@@ -1,0 +1,43 @@
+---
+title: "Contacts overview"
+description: "How contacts work in WapNotify — available fields, how contacts are created, and how they relate to conversations."
+---
+
+Contacts are the people your team communicates with on WhatsApp. Every conversation is linked to a contact record.
+
+## How contacts are created
+
+Contacts are created in two ways:
+
+- **Automatically** — when an unknown number sends a message to your WhatsApp number, WapNotify creates a contact using their phone number. You can fill in the rest of the details later.
+- **Manually** — click **New contact** in the Contacts section and fill in the details directly.
+- **Via CSV import** — upload a spreadsheet of contacts at once. See [import contacts](/contacts/import-contacts).
+
+## Contact fields
+
+Each contact record has the following fields:
+
+| Field | Notes |
+|---|---|
+| **Name** | Display name shown in the inbox |
+| **Phone** | WhatsApp-registered mobile number. Must be unique per workspace. |
+| **Email** | Optional |
+| **Company** | Optional |
+| **City** | Optional |
+| **Tags** | Color-coded labels for categorizing contacts. See [tags and lists](/contacts/tags-and-lists). |
+| **Notes** | Free-text notes about the contact (visible to all agents) |
+| **Assigned to** | Agent responsible for this contact |
+| **GSTIN** | GST identification number — used in invoice PDFs for quotations |
+| **Billing address** | Used in quotation and sales order PDFs |
+| **State name / State code** | For GST compliance on invoices |
+| **Custom fields** | Any additional fields your Admin has defined. See [custom fields](/contacts/custom-fields). |
+
+## Soft delete
+
+Deleting a contact soft-deletes it — the record is hidden from the contact list but the conversation history is preserved. If the deleted contact messages your number again, WapNotify automatically restores their record.
+
+## Contact and conversation relationship
+
+A contact can have multiple conversations over time. The Contacts profile page shows all their past conversations, notes, custom field values, and associated leads or quotations in one place.
+
+Opening a conversation from the contact profile takes you directly to that WhatsApp thread.

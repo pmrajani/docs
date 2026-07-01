@@ -1,0 +1,78 @@
+---
+title: "API overview"
+description: "Base URL, authentication, response format, and general conventions for the WapNotify REST API."
+---
+
+The WapNotify API is a REST API that gives you programmatic access to your workspace data — contacts, conversations, broadcasts, templates, and more.
+
+## Base URL
+
+```
+https://wapnotify.com/api
+```
+
+All endpoints are relative to this base URL.
+
+## Authentication
+
+Every request must include a valid JWT in the `Authorization` header:
+
+```http
+Authorization: Bearer <your_token>
+```
+
+Obtain a token by calling `POST /api/auth/login`. Tokens expire after 7 days. See [authentication](/api-reference/authentication) for details.
+
+## Response format
+
+All responses use a consistent JSON envelope.
+
+**Success:**
+```json
+{
+  "success": true,
+  "data": { ... }
+}
+```
+
+**Error:**
+```json
+{
+  "error": "Description of what went wrong"
+}
+```
+
+HTTP status codes follow standard conventions:
+- `200` — success
+- `201` — resource created
+- `400` — bad request (validation error)
+- `401` — missing or invalid token
+- `403` — token valid but insufficient permissions
+- `404` — resource not found
+- `500` — server error
+
+## Workspace scoping
+
+Every API request is scoped to the workspace encoded in the JWT. You cannot access data from another workspace with a single token. To act on behalf of a different workspace, obtain a token for that workspace via `/api/auth/login` with that workspace's credentials.
+
+## Permissions
+
+Most endpoints require specific role permissions. If your token's role lacks the required permission, the API returns `403 Forbidden`.
+
+Permission requirements are noted per endpoint in the [API reference](/api-reference/authentication).
+
+## Content type
+
+Send request bodies as JSON with the `Content-Type: application/json` header.
+
+```http
+Content-Type: application/json
+```
+
+## Rate limits
+
+The API does not enforce hard rate limits currently. Avoid sending more than 10 requests per second per workspace to prevent performance degradation.
+
+<Note>
+  The API is intended for integrations and automation. If you're building a user-facing application, contact [info@equitysoft.in](mailto:info@equitysoft.in) to discuss your use case.
+</Note>

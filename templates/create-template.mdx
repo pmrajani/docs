@@ -1,0 +1,91 @@
+---
+title: "Create a template"
+description: "How to create a WhatsApp message template in WapNotify, add variables and buttons, and submit it for Meta approval."
+---
+
+## Create a template
+
+1. Go to **Templates** in the sidebar.
+2. Click **New template**.
+3. Fill in the template details as described below.
+4. Click **Submit for approval**.
+
+WapNotify sends the template to Meta for review. Status updates to **Approved** or **Rejected** within minutes to a few hours.
+
+## Template name
+
+Enter a name using only lowercase letters, numbers, and underscores — no spaces. This name is used internally and in the Meta Business Manager.
+
+Example: `order_shipped_notification`
+
+## Category
+
+Select one of: **Marketing**, **Utility**, or **Authentication**. See [templates overview](/templates/overview) for guidance on choosing the right category.
+
+## Language
+
+Select the language for this template. If you need the same template in multiple languages, create a separate template for each.
+
+## Header (optional)
+
+Choose a header type:
+
+| Type | Use |
+|---|---|
+| **Text** | Short heading line above the body |
+| **Image** | JPG or PNG image |
+| **Document** | PDF or other document file |
+| **Video** | MP4 video |
+
+For media headers, upload the file. The same file is used every time the template is sent — you cannot change it per send.
+
+## Body
+
+The body is the main message. Write clearly and concisely.
+
+To include variable content (customer name, order number, date, etc.), insert numbered placeholders:
+
+```
+Hello {{1}}, your order {{2}} is confirmed and will be delivered by {{3}}.
+```
+
+Each `{{N}}` placeholder is filled in at send time. Keep variable usage to what's genuinely needed — overly variable-heavy bodies are more likely to be rejected.
+
+<Tip>
+  Provide a sample value for each variable when submitting. Meta reviewers use your samples to evaluate the template. Use realistic examples, not "test123".
+</Tip>
+
+## Footer (optional)
+
+A short line of text shown below the body in a smaller, grey font. Commonly used for "Reply STOP to unsubscribe" or a disclaimer.
+
+## Buttons (optional)
+
+Add up to three buttons:
+
+| Button type | What it does |
+|---|---|
+| **Call to action — URL** | Opens a URL in the browser. Can include a variable for dynamic links. |
+| **Call to action — Phone** | Dials a phone number |
+| **Quick reply** | Customer taps to send a predefined reply text back to you |
+
+## After submitting
+
+The template status shows as **Pending** while Meta reviews it.
+
+- **Approved** — the template is ready to use in conversations and broadcasts.
+- **Rejected** — Meta declined it. The rejection reason is shown. Fix the content and resubmit.
+
+Common rejection reasons:
+- Body contains a URL that belongs to a different business
+- Template appears to be spam or promotional while categorised as Utility
+- Missing variable samples
+
+## Sync from Meta
+
+If you created or updated templates directly in Meta Business Manager, sync them into WapNotify:
+
+1. Go to **Templates**.
+2. Click **Sync from Meta**.
+
+This pulls the current status and content for all templates associated with your WhatsApp Business Account.

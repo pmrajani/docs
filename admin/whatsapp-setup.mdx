@@ -1,0 +1,68 @@
+---
+title: "WhatsApp setup"
+description: "Admin guide to connecting a WhatsApp Business number using Manual Setup — required fields, where to find them, and how to configure the Meta webhook."
+---
+
+WhatsApp credentials are stored per workspace in WapNotify's database — not in server environment variables. This means each workspace can have its own WhatsApp number, and credentials are managed entirely through the Settings UI.
+
+## Required credentials
+
+| Field | Where to find it |
+|---|---|
+| **Phone Number ID** | Meta app → WhatsApp → API Setup → select your number |
+| **Business Account ID (WABA ID)** | Same page, labelled "WhatsApp Business Account ID" |
+| **Access Token** | Meta Business Suite → System users → Generate token |
+| **Webhook Verify Token** | A string you choose — entered in both WapNotify and Meta |
+| **App Secret** | Meta app → Settings → Basic → App Secret |
+
+See [connect WhatsApp](/getting-started/connect-whatsapp) for step-by-step instructions on finding each value.
+
+## Connect via Manual Setup
+
+1. Log in as an Admin.
+2. Go to **Settings → WhatsApp Setup**.
+3. Click **Manual Setup**.
+4. Enter all five credential fields.
+5. Click **Save & Validate**.
+
+WapNotify calls the Meta API with the provided credentials to verify they are correct. If validation fails, the error message from Meta is shown — check for typos, expired tokens, or incorrect WABA ID.
+
+6. After successful validation, copy the **Webhook URL** shown on the page.
+
+## Configure the webhook in Meta
+
+1. Open your Meta app at [developers.facebook.com](https://developers.facebook.com).
+2. Go to **WhatsApp → Configuration**.
+3. Click **Edit** in the Webhook section.
+4. Paste the WapNotify **Webhook URL** into the **Callback URL** field.
+5. Enter the same **Verify Token** you used in WapNotify.
+6. Click **Verify and save**.
+7. Subscribe to the **messages** webhook field.
+
+<Warning>
+  The Verify Token must match exactly between WapNotify and Meta. A mismatch (including trailing spaces) causes webhook verification to fail and you will not receive incoming messages.
+</Warning>
+
+## Refresh phone number info
+
+After connecting, click **Refresh phone info** to pull the latest display name and status for your registered phone number from Meta.
+
+## Disconnect WhatsApp
+
+To remove the WhatsApp connection from a workspace:
+
+1. Go to **Settings → WhatsApp Setup**.
+2. Click **Disconnect**.
+3. Confirm the action.
+
+This clears all stored credentials for the workspace. Incoming messages will stop routing until new credentials are entered.
+
+<Warning>
+  Disconnecting does not delete conversation history — existing conversations remain in the inbox. However, no new messages will be received until WhatsApp is reconnected.
+</Warning>
+
+## App Secret and webhook security
+
+WapNotify uses the App Secret to verify the HMAC-SHA256 signature on every incoming webhook request (`x-hub-signature-256` header). This ensures webhook payloads genuinely came from Meta and not from a third party.
+
+If you rotate your Meta app secret, update the `App Secret` field in **Settings → WhatsApp Setup** immediately to avoid rejected webhook payloads.

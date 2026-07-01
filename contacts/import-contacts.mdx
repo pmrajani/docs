@@ -1,0 +1,54 @@
+---
+title: "Import contacts"
+description: "How to bulk-import contacts into WapNotify using a CSV file."
+---
+
+Use CSV import to add many contacts at once — useful when migrating from another CRM or uploading a leads list.
+
+## Download the template
+
+1. Go to **Contacts** in the sidebar.
+2. Click **Import**.
+3. Click **Download template** to get a CSV file with the correct column headers.
+
+Always start from the template to avoid column mapping errors.
+
+## Fill in the CSV
+
+Open the template in Excel or Google Sheets. The columns are:
+
+| Column | Required | Notes |
+|---|---|---|
+| `name` | Yes | Contact's display name |
+| `phone` | Yes | Include country code, e.g. `919876543210` — no `+` prefix |
+| `email` | No | |
+| `company` | No | |
+| `city` | No | |
+| `tags` | No | Comma-separated tag names, e.g. `lead,vip` |
+| `notes` | No | |
+
+<Warning>
+  Phone numbers must include the country code without the `+` sign. `919876543210` is correct; `+919876543210` and `9876543210` will fail validation.
+</Warning>
+
+## Upload and import
+
+1. Save your completed CSV.
+2. Go back to **Contacts → Import**.
+3. Click **Choose file** and select your CSV.
+4. WapNotify validates the file and shows a preview of the first few rows.
+5. Review the preview to confirm columns mapped correctly.
+6. Click **Import** to start the import.
+
+Large files are processed in the background. Refresh the contacts list after a minute to see the imported records.
+
+## Duplicate handling
+
+WapNotify identifies duplicates by phone number within your workspace.
+
+- If a phone number already exists, **the existing record is updated** with any new field values from the CSV.
+- Existing field values are not overwritten if the CSV cell is empty — only populated cells update the record.
+
+## Errors
+
+If any rows fail (e.g. missing phone number, invalid format), WapNotify shows an error summary after import. Fix the rows in your CSV and re-import — successful rows from the first import are not duplicated.

@@ -1,0 +1,53 @@
+---
+title: "Broadcasts overview"
+description: "What broadcasts are, how they work, and how WapNotify tracks delivery and read rates."
+---
+
+A broadcast is a one-time bulk send of a WhatsApp template message to a group of contacts. Use broadcasts for promotions, announcements, reminders, or any outbound campaign.
+
+## How broadcasts work
+
+Because you're sending outside a customer-initiated conversation, Meta requires you to use an **approved template** for every broadcast. Free-form text is not allowed.
+
+WapNotify sends each message individually — one message per contact — so replies come back as individual conversations in your inbox.
+
+## Targeting
+
+When creating a broadcast, choose how to select recipients:
+
+| Target type | Who receives the broadcast |
+|---|---|
+| **Contact list** | Every contact in a specific list |
+| **By tag** | Every contact with one or more selected tags |
+| **All contacts** | Every contact in your workspace |
+
+<Warning>
+  Sending to **All contacts** can reach a large number of people. Review the recipient count before sending.
+</Warning>
+
+## Delivery tracking
+
+WapNotify tracks the status of each message in the broadcast:
+
+| Status | Meaning |
+|---|---|
+| **Pending** | Queued, not yet sent |
+| **Sent** | Delivered to WhatsApp's servers |
+| **Delivered** | Delivered to the recipient's device |
+| **Read** | Recipient has opened the message |
+| **Failed** | Delivery failed (invalid number, blocked, etc.) |
+
+Open a broadcast and go to the **Analytics** tab to see per-contact delivery status and aggregate rates.
+
+## Replies
+
+When a recipient replies to a broadcast message, their reply appears as a conversation in your inbox — assigned based on your normal routing rules. The 24-hour window opens from the moment they reply, so you can respond with free-form messages.
+
+## Broadcast statuses
+
+| Status | Meaning |
+|---|---|
+| **Draft** | Created but not yet sent |
+| **Running** | Currently sending |
+| **Completed** | All messages processed |
+| **Failed** | Send aborted due to a critical error |

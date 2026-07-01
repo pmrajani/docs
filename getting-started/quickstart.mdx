@@ -1,0 +1,62 @@
+---
+title: "Quickstart"
+description: "Get WapNotify up and running in four steps: create a workspace, connect WhatsApp, invite your team, and send your first message."
+---
+
+## Before you begin
+
+You need a WhatsApp Business API account through Meta. If you don't have one yet, see [connect WhatsApp](/getting-started/connect-whatsapp) for what to prepare.
+
+## Set up WapNotify
+
+<Steps>
+  <Step title="Create your workspace">
+    Go to [wapnotify.com](https://wapnotify.com) and sign up. During signup you'll create your workspace — this is your company's isolated environment where all conversations, contacts, and team members live.
+
+    You'll be the workspace Admin by default.
+  </Step>
+
+  <Step title="Connect your WhatsApp number">
+    Go to **Settings → WhatsApp Setup** and select **Manual Setup**.
+
+    You'll need four values from your Meta Business account:
+    - **Phone Number ID** — the ID of your registered WhatsApp phone number
+    - **Business Account ID (WABA ID)** — your WhatsApp Business Account ID
+    - **Access Token** — a permanent or long-lived system user token
+    - **Webhook Verify Token** — a string you choose; used by Meta to verify your webhook endpoint
+
+    Paste each value into the form, then click **Save & Validate**. WapNotify will check the credentials against the Meta API.
+
+    For a detailed walkthrough of where to find these values, see [connect WhatsApp](/getting-started/connect-whatsapp).
+  </Step>
+
+  <Step title="Invite your first team member">
+    Go to **Settings → Team** and click **Invite member**.
+
+    Enter their name and email address, then assign a role:
+    - **Admin** — full access including settings, billing, and team management
+    - **Agent** — access to conversations and contacts based on role permissions
+
+    The invited user will receive a login link by email.
+
+    You can create custom roles with granular permissions at **Settings → Roles**.
+  </Step>
+
+  <Step title="Send your first message">
+    When a customer messages your WhatsApp number, it appears in **Conversations** automatically.
+
+    Open the conversation, type your reply in the message box, and press **Send**.
+
+    <Note>
+      You can only send free-form messages within 24 hours of the customer's last message. After that window closes, you must use an approved template. See [the 24-hour window](/conversations/overview#the-24-hour-messaging-window).
+    </Note>
+
+    To proactively message a contact, open their contact record and click **Send template**.
+  </Step>
+</Steps>
+
+## What's next
+
+- [Import your contacts](/contacts/import-contacts) via CSV
+- [Create message templates](/templates/create-template) for broadcasts and outbound messages
+- [Set up roles and permissions](/admin/roles-permissions) for your team

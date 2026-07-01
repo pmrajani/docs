@@ -1,0 +1,72 @@
+---
+title: "Create a flow"
+description: "How to create a keyword-triggered auto-reply flow, publish it, and test it."
+---
+
+## Create a flow
+
+1. Go to **Flows** in the sidebar.
+2. Click **New flow**.
+3. Give the flow a name (internal only, not visible to customers).
+4. Click **Save**. The flow opens in the flow editor.
+
+## Add a trigger
+
+1. Click **Add trigger** in the flow editor.
+2. Select the trigger type: **Keyword**, **First inbound**, or **Manual**.
+3. For keyword triggers:
+   - Enter the keyword or phrase
+   - Choose the match mode: Exact, Contains, Fuzzy, or Regex
+4. Click **Save trigger**.
+
+You can add multiple triggers to the same flow. The flow fires if any trigger condition is met.
+
+## Build the flow graph
+
+The flow is a directed graph of nodes. Add nodes after the trigger:
+
+**Send message node** — sends a WhatsApp message to the contact. You can send:
+- A plain text message
+- An approved template (required if the 24-hour window may be closed)
+
+**Assign conversation node** — assigns the conversation to a specific agent or leaves it unassigned for the inbox queue.
+
+To add a node:
+1. Click the **+** button below an existing node.
+2. Select the node type.
+3. Fill in the node settings.
+4. Click **Save**.
+
+Connect nodes by dragging from the output handle of one node to the input of the next.
+
+## Example: keyword auto-reply
+
+A simple flow that replies to any message containing "pricing":
+
+1. **Trigger** — Keyword: `pricing`, mode: Contains
+2. **Send message** — "Thanks for your interest! Here's our pricing page: https://wapnotify.com/pricing. An agent will follow up shortly."
+3. **Assign conversation** — Assign to the Sales team queue (leave unassigned)
+
+## Publish the flow
+
+When the flow is ready:
+
+1. Click **Publish** in the top-right corner.
+2. The flow status changes to **Published** and it becomes active immediately.
+
+<Warning>
+  Published flows run on live customer messages. Test with a personal number before publishing to avoid sending unintended responses to customers.
+</Warning>
+
+## Test the flow
+
+1. Send a message from a personal WhatsApp number to your business number that matches the trigger condition.
+2. Confirm the automated reply arrives.
+3. Check the **Flow runs** log in the flow detail view to see the execution record.
+
+## Pause or edit a flow
+
+- **Pause** — click **Unpublish** to stop the flow without deleting it. Status changes to **Inactive**.
+- **Edit** — unpublish the flow first, make changes, then republish.
+
+You cannot edit a published flow while it is active.

@@ -1,0 +1,82 @@
+---
+title: "Settings"
+description: "Workspace settings in WapNotify — company info, WhatsApp configuration, module toggles, and data management."
+---
+
+Admins manage workspace configuration from **Settings** in the sidebar. The settings area is divided into several sections.
+
+## Company settings
+
+Go to **Settings → Company** to update:
+
+| Field | Notes |
+|---|---|
+| **Workspace name** | Displayed in the header and emails sent from WapNotify |
+| **Timezone** | Used for scheduling and analytics timestamps |
+
+Click **Save** after making changes.
+
+## WhatsApp setup
+
+Go to **Settings → WhatsApp Setup** to manage your WhatsApp Business API connection — credentials, webhook URL, and phone number info.
+
+See [WhatsApp setup](/admin/whatsapp-setup) for the full guide.
+
+## Team
+
+Go to **Settings → Team** to:
+- View all workspace members
+- Invite new members
+- Change a member's role
+- Deactivate members
+
+See [invite your team](/getting-started/invite-team).
+
+## Roles
+
+Go to **Settings → Roles** to create and manage custom roles with granular permissions.
+
+See [roles & permissions](/admin/roles-permissions).
+
+## Tags
+
+Go to **Settings → Tags** to create and manage the tag catalog used for labeling contacts.
+
+Tags must exist in the catalog before they can be assigned to contacts. Deleting a tag from the catalog removes it from all contacts.
+
+## Quick replies
+
+Go to **Settings → Quick Replies** to manage the library of saved message snippets available to agents.
+
+Each quick reply has a **title** (used for search in the `/` picker) and a **message** body.
+
+## Custom fields
+
+Go to **Settings → Custom Fields** to define additional fields for contact records.
+
+See [custom fields](/contacts/custom-fields).
+
+## Modules
+
+Go to **Settings → Modules** to toggle optional feature modules on or off for your workspace:
+
+| Module | What it enables |
+|---|---|
+| **Leads** | The Leads Kanban pipeline |
+| **Quotations** | The Quotations and Sales Orders module |
+| **Suppliers** | Supplier management |
+| **Products** | Product catalog |
+| **Purchase orders** | Purchase order management |
+| **Stock** | Inventory tracking |
+
+Disabling a module hides it from the sidebar. Existing data is preserved — re-enabling the module restores access to it.
+
+## Data management
+
+Go to **Settings → Danger zone** for irreversible workspace actions.
+
+**Delete all workspace data** — permanently deletes all contacts, conversations, messages, broadcasts, templates, leads, and settings for the workspace. The workspace account itself is not deleted, but it is reset to a clean state.
+
+<Warning>
+  Deleting workspace data is permanent and cannot be undone. Export any data you need before proceeding.
+</Warning>

@@ -1,0 +1,59 @@
+---
+title: "Invite your team"
+description: "How to invite team members to your WapNotify workspace, assign roles, and manage access."
+---
+
+Every person who uses WapNotify in your workspace needs an account. Admins can invite members, assign roles, and deactivate accounts.
+
+## Invite a team member
+
+1. Go to **Settings → Team**.
+2. Click **Invite member**.
+3. Enter the person's **name** and **email address**.
+4. Select a **role** (see [roles and permissions](/admin/roles-permissions) for what each role controls).
+5. Click **Send invite**.
+
+The invited person receives an email with a link to set their password and log in. The link is valid for 24 hours.
+
+<Note>
+  Invited users inherit the permissions of the role you assign. You can change their role at any time from **Settings → Team**.
+</Note>
+
+## Built-in roles
+
+WapNotify includes two system roles that cannot be deleted:
+
+| Role | What they can do |
+|---|---|
+| **Admin** | Full access — settings, billing, team management, all conversations and contacts |
+| **Agent** | Access to conversations and contacts based on role visibility settings |
+
+For most teams, Agents handle day-to-day customer conversations and Admins manage configuration.
+
+## Custom roles
+
+If you need finer control — for example, a role that can view analytics but not send broadcasts — create a custom role.
+
+1. Go to **Settings → Roles**.
+2. Click **New role**.
+3. Name the role and toggle permissions on or off for each module (contacts, conversations, broadcasts, templates, leads, analytics, settings).
+4. Set the **visibility scope**: what conversations and contacts this role can see.
+   - **Own** — only records assigned to themselves
+   - **Team** — records assigned to anyone in the same role group
+   - **All** — all records in the workspace
+5. Optionally enable **Share with peers** so agents with the same role can see each other's conversations.
+6. Click **Save**.
+
+See [roles and permissions](/admin/roles-permissions) for the full permission reference.
+
+## Manage existing members
+
+From **Settings → Team** you can:
+
+- **Change a member's role** — click the member row and update their role
+- **Deactivate a member** — removes their login access without deleting their conversation history
+- **View last login** — useful for auditing inactive accounts
+
+<Warning>
+  Deactivating a member does not reassign their open conversations. Go to **Conversations** and reassign any open chats before deactivating someone who is leaving the team.
+</Warning>

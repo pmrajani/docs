@@ -1,0 +1,66 @@
+---
+title: "Create a quotation"
+description: "Step-by-step guide to building a quote in a conversation, sending it via WhatsApp, and converting it to a sales order."
+---
+
+## Create a quote from a conversation
+
+<Steps>
+  <Step title="Open the conversation">
+    Go to **Conversations** and open the chat with the customer you want to quote.
+  </Step>
+
+  <Step title="Open the Quotations panel">
+    In the right-side panel, click the **Quotations** tab. Click **New quotation**.
+  </Step>
+
+  <Step title="Add line items">
+    Click **Add item** and fill in each row:
+    - **Product** — search your product catalog or type a custom name
+    - **Quantity**
+    - **Unit price**
+    - **Tax rate (%)** — WapNotify calculates the tax amount and line total automatically
+
+    Add as many line items as needed. The subtotal, tax total, and grand total update as you add items.
+  </Step>
+
+  <Step title="Review contact details">
+    The quote pulls the contact's name, phone, and billing address automatically. If the contact is missing a GSTIN or billing address and you need them on the PDF, update the contact record first.
+  </Step>
+
+  <Step title="Save as draft">
+    Click **Save draft** to save without sending. You can edit a draft at any time before sending.
+  </Step>
+
+  <Step title="Send via WhatsApp">
+    Click **Send**. WapNotify sends the quote summary as a WhatsApp message in the conversation and marks the quotation status as **Sent**.
+
+    The customer receives a formatted message with the quote number, line items, and total.
+  </Step>
+</Steps>
+
+## Update quote status
+
+After sending, update the status based on the customer's response:
+
+- Customer says yes → click **Mark as accepted**
+- Customer says no → click **Mark as rejected**
+
+## Convert to a sales order
+
+Once a quote is accepted:
+
+1. Open the quotation.
+2. Click **Convert to sales order**.
+3. WapNotify creates a Sales Order (`SO-YYYY-NNNN`) with all the same line items.
+4. The quotation status changes to **Converted**.
+
+From the sales order, you can advance the status as the order progresses: `pending → confirmed → dispatched → delivered`.
+
+## Edit or delete a quotation
+
+- **Draft** — fully editable
+- **Sent** — can update status only; line items are locked
+- **Accepted / Rejected / Converted** — read-only
+
+To delete, open the quotation and click **Delete**. Deleted quotations are soft-deleted and won't appear in the list, but the linked sales order (if any) is unaffected.

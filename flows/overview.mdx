@@ -1,0 +1,52 @@
+---
+title: "Flows & automation overview"
+description: "What flows are, the available trigger types, and common use cases for automating WhatsApp responses."
+---
+
+Flows let you automate responses to WhatsApp messages without manual agent involvement. A flow is a sequence of actions (send a message, assign a conversation, etc.) that runs automatically when a trigger condition is met.
+
+## Trigger types
+
+| Trigger | When it fires |
+|---|---|
+| **Keyword** | A contact sends a message containing a specific word or phrase |
+| **First inbound** | A contact messages your number for the very first time |
+| **Manual** | An agent triggers the flow manually from within a conversation |
+
+### Keyword trigger
+
+Keyword triggers match against the contact's message text. Four match modes are available:
+
+| Mode | How it matches |
+|---|---|
+| **Exact** | The message is exactly the keyword (case-insensitive) |
+| **Contains** | The message contains the keyword anywhere |
+| **Fuzzy** | The message approximately matches (handles typos) |
+| **Regex** | Full regular expression match |
+
+Example: a keyword trigger for `pricing` (contains) fires when a contact sends "What's your pricing?" or "Can you share pricing info?".
+
+### First inbound trigger
+
+Fires once per contact — the first time they ever message your number. Use it to send an automatic welcome message and set expectations about response times.
+
+### Manual trigger
+
+Agents can trigger a flow from within a conversation. Use this for structured workflows like sending a multi-step onboarding sequence or a feedback survey.
+
+## Flow statuses
+
+| Status | Meaning |
+|---|---|
+| **Draft** | Being built — not active |
+| **Published** | Active and running |
+| **Inactive** | Was published but manually paused |
+
+Only one flow run can be active per contact at any time. If a contact is already in a flow, a new trigger for the same contact is ignored until the current run completes.
+
+## Common use cases
+
+- **Welcome message** — greet new contacts automatically with a first inbound trigger
+- **FAQ auto-reply** — answer common questions like "What are your hours?" with a keyword trigger
+- **Lead qualification** — send a sequence of questions to gather information before routing to an agent
+- **Out-of-hours notice** — reply automatically outside business hours to set expectations

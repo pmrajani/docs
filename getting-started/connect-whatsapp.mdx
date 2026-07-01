@@ -1,0 +1,103 @@
+---
+title: "Connect WhatsApp"
+description: "How to connect a WhatsApp Business number to WapNotify using the Meta Cloud API manual setup."
+---
+
+WapNotify uses the official Meta WhatsApp Business API (Cloud API). To receive and send messages, you need to link your WhatsApp Business Account to WapNotify.
+
+## Prerequisites
+
+Before you start, make sure you have:
+
+- A **Meta Business Account** at [business.facebook.com](https://business.facebook.com)
+- A **WhatsApp Business Account (WABA)** created inside Meta Business Suite
+- A **phone number** registered as a WhatsApp Business number (cannot be in use on WhatsApp personal or WhatsApp Business app simultaneously)
+- A **System User** with a permanent access token (recommended over short-lived tokens)
+
+<Tip>
+  If you're setting this up for the first time, follow Meta's [Get Started guide](https://developers.facebook.com/docs/whatsapp/cloud-api/get-started) to create your app and register your phone number.
+</Tip>
+
+## Find your credentials
+
+You need four values from Meta. Here's where to find each one.
+
+<AccordionGroup>
+  <Accordion title="Phone Number ID">
+    1. Go to [developers.facebook.com](https://developers.facebook.com) and open your app.
+    2. In the left sidebar, click **WhatsApp → API Setup**.
+    3. Under **From**, select your phone number.
+    4. Copy the **Phone number ID** shown below the number.
+  </Accordion>
+
+  <Accordion title="Business Account ID (WABA ID)">
+    1. In the same **WhatsApp → API Setup** page, look for **WhatsApp Business Account ID**.
+    2. Copy the numeric ID shown there.
+
+    Alternatively, go to **Meta Business Suite → Settings → WhatsApp accounts** and copy the account ID.
+  </Accordion>
+
+  <Accordion title="Access Token (System User Token)">
+    A permanent access token is recommended so you don't need to refresh it.
+
+    1. Go to **Meta Business Suite → Settings → Users → System users**.
+    2. Create or select a system user with **Admin** access.
+    3. Click **Generate new token**, select your WhatsApp app, and grant the `whatsapp_business_messaging` and `whatsapp_business_management` permissions.
+    4. Copy the token — it's only shown once.
+  </Accordion>
+
+  <Accordion title="Webhook Verify Token">
+    This is a string **you choose**. It can be any random string (e.g. `wapnotify_webhook_abc123`). Meta sends this token to your webhook URL to confirm ownership. You'll enter the same string in both WapNotify and the Meta webhook configuration.
+  </Accordion>
+
+  <Accordion title="App Secret (for webhook signature verification)">
+    1. In your Meta app, go to **Settings → Basic**.
+    2. Copy the **App Secret**.
+
+    WapNotify uses this to verify that incoming webhook events actually came from Meta. Keep it private.
+  </Accordion>
+</AccordionGroup>
+
+## Connect in WapNotify
+
+1. Log in as an Admin and go to **Settings → WhatsApp Setup**.
+2. Click **Manual Setup**.
+3. Fill in the form:
+
+| Field | Value |
+|---|---|
+| Phone Number ID | From Meta app → WhatsApp → API Setup |
+| Business Account ID | Your WABA ID |
+| Access Token | Your system user token |
+| Webhook Verify Token | Your chosen string |
+| App Secret | From Meta app → Settings → Basic |
+
+4. Click **Save & Validate**. WapNotify will call the Meta API to verify the credentials.
+5. Once validated, copy the **Webhook URL** displayed on the page.
+
+## Configure the webhook in Meta
+
+After saving your credentials, you need to tell Meta where to send events.
+
+1. In your Meta app, go to **WhatsApp → Configuration**.
+2. Click **Edit** on the Webhook section.
+3. Paste the **Webhook URL** from WapNotify into the **Callback URL** field.
+4. Enter the same **Verify Token** you used in WapNotify.
+5. Click **Verify and save**.
+6. Subscribe to the **messages** webhook field.
+
+<Warning>
+  If the webhook verification fails, double-check that the Verify Token in Meta exactly matches what you entered in WapNotify. Trailing spaces cause failures.
+</Warning>
+
+## Test the connection
+
+Send a WhatsApp message to your business number from a personal number. Within a few seconds it should appear in WapNotify's **Conversations** inbox.
+
+## The 24-hour messaging window
+
+Meta enforces a rule: you can send free-form messages (text, media, etc.) only within **24 hours** of the customer's last inbound message. Outside that window, you can only send approved templates.
+
+WapNotify shows a countdown timer on each conversation so you know when the window closes. When it expires, the free-form text box is disabled and you'll need to use **Send template** instead.
+
+See [using templates in conversations](/conversations/using-templates) for details.

@@ -1,0 +1,49 @@
+---
+title: "Custom fields"
+description: "How Admins create custom contact fields and agents fill them in on contact profiles."
+---
+
+Custom fields let you track information about contacts that isn't covered by the built-in fields. An Admin defines the field structure; agents fill in values on each contact.
+
+## Create a custom field (Admin)
+
+1. Go to **Settings → Custom fields**.
+2. Click **New field**.
+3. Fill in:
+   - **Label** — the display name shown on the contact profile (e.g. "Lead source", "Annual revenue")
+   - **Key** — a short programmatic identifier, auto-generated from the label (e.g. `lead_source`)
+   - **Type** — `Text`, `Number`, or `Date`
+4. Set the **display order** to control where the field appears on the contact profile.
+5. Click **Save**.
+
+The field immediately appears on all contact profiles in the workspace.
+
+## Fill in a custom field value (Agent)
+
+1. Open a contact record.
+2. Scroll to the **Custom fields** section on the right panel.
+3. Click the field value and type or select the value.
+4. Changes save automatically.
+
+## Field types
+
+| Type | Use for |
+|---|---|
+| **Text** | Short strings — source, category, account manager name |
+| **Number** | Numeric values — deal size, number of employees, order count |
+| **Date** | Dates — contract renewal date, last follow-up date |
+
+## Use cases
+
+- **Lead source** (Text) — track where each contact came from: referral, website, trade show
+- **Contract value** (Number) — store the value of an active deal
+- **Renewal date** (Date) — know when to follow up before a contract expires
+- **Account tier** (Text) — segment contacts as Gold, Silver, Bronze for prioritization
+
+## Delete a custom field
+
+Go to **Settings → Custom fields**, find the field, and click **Delete**. Deleting a field removes the field definition and all values stored for it across every contact. This cannot be undone.
+
+<Warning>
+  Deleting a custom field permanently removes all stored values for that field. Export your data before deleting if you need to preserve the values.
+</Warning>
