@@ -38,11 +38,28 @@ The quote footer shows subtotal, total tax, and grand total.
 
 If the contact has a **GSTIN** and **billing address** on their profile, these are included in the quote PDF. The state code is used to determine IGST vs. CGST/SGST split.
 
+## PDF templates
+
+Two PDF layouts are available, configured workspace-wide at **Settings → Company**:
+
+| Template | Description |
+|---|---|
+| **Modern** | Clean, minimal layout |
+| **Tally GST Tax Invoice** | Tally-style bordered layout with HSN summary, CGST/SGST or IGST columns, amount in words, and authorised signatory block |
+
+Quotations use the title "Quotation". Sales orders use the title "Tax Invoice".
+
+## Walk-in quotes
+
+You can create a quotation directly from a contact record — no open conversation required. Open the contact's profile and click **Create Quotation**. This is useful when a customer is in front of you and you want to generate a quote for printing without sending it via WhatsApp.
+
 ## Sales orders
 
 When a customer accepts a quote, convert it to a Sales Order with one click. The sales order inherits all line items and contact details from the quote.
 
 Sales order statuses: `pending → confirmed → dispatched → delivered → cancelled`
+
+Sales orders have their own invoice PDF (downloadable or sendable via WhatsApp) separate from the original quotation.
 
 ## Enable the module
 

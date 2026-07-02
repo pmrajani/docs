@@ -17,6 +17,20 @@ WhatsApp credentials are stored per workspace in WapNotify's database — not in
 
 See [connect WhatsApp](/getting-started/connect-whatsapp) for step-by-step instructions on finding each value.
 
+## Connection options
+
+When you open **Settings → WhatsApp Setup**, choose how you want to connect your number:
+
+| Option | When to use |
+|---|---|
+| **Connect via WhatsApp Business App** | You currently use the WhatsApp Business App on your phone and want to run it alongside WapNotify (coexistence mode) |
+| **Move an existing number** | You have a number already registered on the WhatsApp Business API and want to migrate it to WapNotify |
+| **Register a new number** | You have a phone number not yet on WhatsApp Business API and want to register it fresh |
+
+For all three options, the guided flow walks you through the Meta login and permission grant. After completing it, WapNotify saves your credentials automatically.
+
+If the guided flow is unavailable — for example, if you have a System User token from Meta Business Suite — use **Manual Setup** instead.
+
 ## Connect via Manual Setup
 
 1. Log in as an Admin.
@@ -43,23 +57,20 @@ WapNotify calls the Meta API with the provided credentials to verify they are co
   The Verify Token must match exactly between WapNotify and Meta. A mismatch (including trailing spaces) causes webhook verification to fail and you will not receive incoming messages.
 </Warning>
 
-## Refresh phone number info
+## Connected card
 
-After connecting, click **Refresh phone info** to pull the latest display name and status for your registered phone number from Meta.
+Once WhatsApp is connected, the setup page shows a status card with:
 
-## Disconnect WhatsApp
+| Field | Description |
+|---|---|
+| **Phone number** | The registered WhatsApp number |
+| **Quality rating** | GREEN / YELLOW / RED — Meta's rating based on user feedback on your messages |
+| **Verified name** | The business display name approved by Meta |
+| **Messaging limit** | How many unique users you can message per 24-hour period (e.g. 1,000 / day) |
+| **Platform type** | Cloud API or Business App (coexistence) |
+| **Last checked** | When WapNotify last fetched this info from Meta |
 
-To remove the WhatsApp connection from a workspace:
-
-1. Go to **Settings → WhatsApp Setup**.
-2. Click **Disconnect**.
-3. Confirm the action.
-
-This clears all stored credentials for the workspace. Incoming messages will stop routing until new credentials are entered.
-
-<Warning>
-  Disconnecting does not delete conversation history — existing conversations remain in the inbox. However, no new messages will be received until WhatsApp is reconnected.
-</Warning>
+Click **Refresh phone info** to pull the latest values from Meta on demand.
 
 ## App Secret and webhook security
 

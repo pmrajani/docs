@@ -5,14 +5,28 @@ description: "Workspace settings in WapNotify — company info, WhatsApp configu
 
 Admins manage workspace configuration from **Settings** in the sidebar. The settings area is divided into several sections.
 
-## Company settings
+## Company & documents
 
-Go to **Settings → Company** to update:
+Go to **Settings → Company** to update your company profile. This information appears on quotation and invoice PDFs sent to customers.
 
 | Field | Notes |
 |---|---|
-| **Workspace name** | Displayed in the header and emails sent from WapNotify |
-| **Timezone** | Used for scheduling and analytics timestamps |
+| **Company name** | Printed in the seller block of all PDFs |
+| **Address** | Full mailing address for the seller block |
+| **Phone** | Contact number shown on PDFs |
+| **Email** | Business email shown on PDFs |
+| **GSTIN** | Your GST Identification Number — enables tax calculation on invoices |
+| **Website** | Optional; printed on PDFs |
+| **State name / State code** | Used to calculate IGST vs CGST/SGST split |
+
+### PDF template
+
+Choose the invoice layout WapNotify uses for all quotations and sales orders:
+
+| Template | Description |
+|---|---|
+| **Modern** | Clean, minimal design |
+| **Tally GST Tax Invoice** | Bordered Tally-style layout with full GST breakdown — HSN summary, CGST/SGST or IGST columns, authorised signatory block |
 
 Click **Save** after making changes.
 
@@ -63,13 +77,14 @@ Go to **Settings → Modules** to toggle optional feature modules on or off for 
 | Module | What it enables |
 |---|---|
 | **Leads** | The Leads Kanban pipeline |
-| **Quotations** | The Quotations and Sales Orders module |
-| **Suppliers** | Supplier management |
-| **Products** | Product catalog |
-| **Purchase orders** | Purchase order management |
-| **Stock** | Inventory tracking |
+| **Store** | Quotations, Sales Orders, and the Product catalog |
+| **Products** | Product catalog (within Store) |
 
 Disabling a module hides it from the sidebar. Existing data is preserved — re-enabling the module restores access to it.
+
+### Conversation status workflow
+
+The **Conversations** card in Modules includes a sub-toggle for the status workflow. When enabled, conversations have Open / Pending / Resolved statuses and agents can filter the inbox by status. Disable it to hide status tabs and treat all conversations as a single flat list.
 
 ## Data management
 
